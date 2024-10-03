@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerar Lista</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        ul li {
+            background-color: #eee;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="number" id="quantidade" placeholder="Digite a quantidade">
+    <button onclick="gerarLista()">Gerar Lista</button>
+
+    <ul id="lista"></ul>
+
+    <script>
+        function gerarLista() {
+            const quantidade = parseInt(document.getElementById("quantidade").value);
+            const lista = document.getElementById("lista");
+
+            lista.innerHTML = ""; // Limpa a lista atual
+
+            if (!isNaN(quantidade) && quantidade > 0) {
+                // Usa um laço de repetição para criar os itens
+                for (let i = 1; i <= quantidade; i++) {
+                    let item = document.createElement("li");
+                    item.textContent = `Pedro amendola ${i}`;
+                    lista.appendChild(item);
+                }
+            } else {
+                lista.innerHTML = "<li>Por favor, insira um número válido.</li>";
+            }
+        }
+    </script>
+
+</body>
+</html>
